@@ -28,6 +28,22 @@ public class TestaMes {
 			break;
 		case 8:
 			System.out.println("O mês é Agosto.");
+			break;
+		case 9:
+			System.out.println("O mês é Setembro.");
+			break;
+		case 10:
+			System.out.println("O mês é Outubro.");
+			break;
+		case 11:
+			System.out.println("O mês é Novembro.");
+			break;
+		case 12:
+			System.out.println("O mês é Dezembro.");
+			break;
+		default:
+			System.out.println("Mês inválido.");
+			break;
 		}
 	}
 
