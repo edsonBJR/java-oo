@@ -2,8 +2,10 @@
 public class TesteFuncionario {
 
 	public static void main(String[] args) {
+		
+        Cliente cliente = new Cliente();
 		 
-		Funcionario nico = new Funcionario();
+		Gerente nico = new Gerente();
 		nico.setNome("Nico Steppat");
 		nico.setCpf("234432567-09");
 		nico.setSalario(2600.00);

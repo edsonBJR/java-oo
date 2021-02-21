@@ -1,5 +1,20 @@
+// Nao podemos criar objetos ou instanciar mais esta classe, porque ela é abstrata. 
+// Precisamos criar uma classe filha apartir dela.
+public abstract class Funcionario {
+	
+    private int senha;
 
-public class Funcionario {
+    public void setSenha(int senha) {
+        this.senha = senha;
+    }
+
+    public boolean autentica(int senha) {
+        if(this.senha == senha) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 	
 	private String nome;
 	private String cpf;
@@ -9,9 +24,8 @@ public class Funcionario {
 //		
 //	}
 	
-	public double getBonificacao() {
-		return this.salario * 0.05;
-	}
+	// Método abstrato, sem corpo ele não foi implementado, os filhos são responsáveis por implementa-los
+	public abstract double getBonificacao();
 	
 	public String getNome() {
 		return nome;
