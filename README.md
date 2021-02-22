@@ -7,3 +7,4 @@
 #### Java JRE e JDK: Escreva o seu primeiro código com Eclipse
 #### Java OO: Introdução à Orientação a Objetos
 #### Java Polimorfismo: Entenda herança e interfaces
+#### Java Exceções: Aprenda a criar, lançar e controlar exceções 
