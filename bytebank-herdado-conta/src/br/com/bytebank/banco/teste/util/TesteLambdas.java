@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
 import br.com.bytebank.banco.modelo.Cliente;
 import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 import br.com.bytebank.banco.modelo.ContaPoupanca;
 
-public class Teste {
+public class TesteLambdas {
 
 	public static void main(String[] args) {
 		
@@ -45,31 +46,36 @@ public class Teste {
 		lista.add(cc3);
 		lista.add(cc4);
 		
-		// Aqui temos um Function Objects
-		// NumeroDaContaComparator2 comparator = new NumeroDaContaComparator2();
 		
-		lista.sort(new Comparator<Conta>() { // Aqui estamos definindo uma classe Anônima que implements uma Interface
-				@Override
-				public int compare(Conta c1, Conta c2) {
-					return Integer.compare(c1.getNumero(), c2.getNumero());
-				}
-			}
-		);
+		// Aqui temos um Lambda que reduz muito o código inclusive a criação de classes anônimas
+		lista.sort((c1, c2) -> Integer.compare(c1.getNumero(), c2.getNumero()));
 		
-		// Aqui estamos armazenando em uma referência do 
-		// Tipo Comparator um objeto implementado da Interface Comparator do tipo Conta.
-		Comparator comp = new Comparator<Conta>() {
-
-			@Override
-			public int compare(Conta c1, Conta c2) {
-				return Integer.compare(c1.getNumero(), c2.getNumero());
-			}
+		// Aqui temos uma Lambda que trabalhamos com mais parâmetros
+		Comparator<Conta> comp = (Conta c1, Conta c2) -> {	
+				String nomeC1 = c1.getTitular().getNome();
+				String nomeC2 = c2.getTitular().getNome();
+				return nomeC1.compareTo(nomeC2);
 			
 		};
 		
-		for(Conta conta : lista) {
-			System.out.println(conta + " - " + "Titular: " + conta.getTitular().getNome());
-		}
+		lista.sort(comp);
+//		Aqui estamos delegando para a lista fazer o seu próprio laço for
+//		Metódo utilizando classe anonima que implements a interface Consumer<T>();
+//		lista.forEach(new Consumer<Conta>() {
+//
+//			@Override
+//			public void accept(Conta conta) {
+//				System.out.println(conta + " - " + "Titular: " + conta.getTitular().getNome());
+//				
+//			}
+//		});
+		
+//		Aqui temos uma Lambda que faz um laço for em cima de cada item da nossa lista - TOP DEMAIS!!!!
+		lista.forEach((conta) -> System.out.println(conta + " - " + "Titular: " + conta.getTitular().getNome()));
+//		
+//		for(Conta conta : lista) {
+//			System.out.println(conta + " - " + "Titular: " + conta.getTitular().getNome());
+//		}
 	}
 
 }
