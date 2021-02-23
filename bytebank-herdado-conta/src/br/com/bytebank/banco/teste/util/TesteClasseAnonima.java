@@ -10,7 +10,7 @@ import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 import br.com.bytebank.banco.modelo.ContaPoupanca;
 
-public class Teste {
+public class TesteClasseAnonima {
 
 	public static void main(String[] args) {
 		
@@ -73,3 +73,24 @@ public class Teste {
 	}
 
 }
+
+// Essa é a Function Objects que estamos utilizando elá encapsula o método que precisamos utilizar.
+//class TitularDaContaComparator2 implements Comparator<Conta> {
+//
+//	@Override
+//	public int compare(Conta c1, Conta c2) {	
+//		String nomeC1 = c1.getTitular().getNome();
+//		String nomeC2 = c2.getTitular().getNome();
+//		return nomeC1.compareTo(nomeC2);
+//	}
+//	
+//}
+
+//class NumeroDaContaComparator2 implements Comparator<Conta> {
+//
+//	@Override
+//	public int compare(Conta c1, Conta c2) {
+//		return Integer.compare(c1.getNumero(), c2.getNumero());
+//	}
+//	
+//}
