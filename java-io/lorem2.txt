@@ -1,0 +1,3 @@
+Vamos testar gravar no arquivo
+assim podemos escrever dentro de um arqui
+apartir do nosso teclad com o System.in
