@@ -1,4 +1,4 @@
-package br.com.bytebank.banco.modelo;
+package br.com.alura.java.io.teste;
 
 import java.io.Serializable;
 
@@ -11,6 +11,9 @@ import java.io.Serializable;
  */
 public class Cliente implements Serializable{
 
+	// Aqui temos um atributo Estático
+	private static final long serialVersionUID = 1L;
+	
 	private String nome;
 	private String cpf;
 	private String profissao;
