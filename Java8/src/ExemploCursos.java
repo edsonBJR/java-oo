@@ -38,49 +38,49 @@ public class ExemploCursos {
 		cursos.sort(Comparator.comparing(Curso::getAlunos));
 		
 		// Tem limitações o método reference, aqui ele vai imprimir a referencia do objeto.
-		cursos.forEach(System.out::println);
-		// No caso assim precisamos utilizar a lambda e invocar o System.out.println
-		cursos.forEach(c -> System.out.println(c.getNome()));
-		
-		// Imprimir todos os curso que tem mais de 100 alunos nele
-		cursos.stream()
-			.filter(c -> c.getAlunos() >= 100)
-			.forEach(c -> System.out.println(c.getNome()));;
-			
-		// Filtro para imprimir o total de alunos em cada curso com mais de 100 alunos
-		cursos.stream()
-			.filter(c -> c.getAlunos() >= 100)
-			.map(c -> c.getAlunos())
-			.forEach(total -> System.out.println(total));
-		
-		// Mesma implementação do método acima so que utilizando method reference
-		cursos.stream()
-			.filter(c -> c.getAlunos() >= 100)
-			.map(Curso::getAlunos)
-			.forEach(System.out::println); // Ainda estamos utilizando o método reference
-		
-		// Filtro pra imprimir o total de alunos em cada curso com mais de 100 alunos e somar todos os alunos deste curso
-		int sum = cursos.stream()
-		.filter(c -> c.getAlunos() >= 100)
-		.mapToInt(Curso::getAlunos)
-		.sum();
-		System.out.println(sum);
-		
-		// Filtro para pegar os cursos com mais de 10 alunos
-		Optional<Curso> optionalCurso = cursos.stream()
-			.filter(c -> c.getAlunos() >= 100)
-			.findAny();
-//		Curso curso = optionalCurso.orElse(null);
-//		System.out.println(curso.getNome());
-		
-		// Caso não encontre o curso com o critério escolhido ele não imprimi nada melhor que null
-		optionalCurso.ifPresent(c -> System.out.println(c.getNome()));
-		
+//		cursos.forEach(System.out::println);
+//		// No caso assim precisamos utilizar a lambda e invocar o System.out.println
+//		cursos.forEach(c -> System.out.println(c.getNome()));
+//		
+//		// Imprimir todos os curso que tem mais de 100 alunos nele
+//		cursos.stream()
+//			.filter(c -> c.getAlunos() >= 100)
+//			.forEach(c -> System.out.println(c.getNome()));;
+//			
+//		// Filtro para imprimir o total de alunos em cada curso com mais de 100 alunos
+//		cursos.stream()
+//			.filter(c -> c.getAlunos() >= 100)
+//			.map(c -> c.getAlunos())
+//			.forEach(total -> System.out.println(total));
+//		
+//		// Mesma implementação do método acima so que utilizando method reference
+//		cursos.stream()
+//			.filter(c -> c.getAlunos() >= 100)
+//			.map(Curso::getAlunos)
+//			.forEach(System.out::println); // Ainda estamos utilizando o método reference
+//		
+//		// Filtro pra imprimir o total de alunos em cada curso com mais de 100 alunos e somar todos os alunos deste curso
+//		int sum = cursos.stream()
+//		.filter(c -> c.getAlunos() >= 100)
+//		.mapToInt(Curso::getAlunos)
+//		.sum();
+//		System.out.println(sum);
+//		
+//		// Filtro para pegar os cursos com mais de 10 alunos
+//		Optional<Curso> optionalCurso = cursos.stream()
+//			.filter(c -> c.getAlunos() >= 100)
+//			.findAny();
+////		Curso curso = optionalCurso.orElse(null);
+////		System.out.println(curso.getNome());
+//		
+//		// Caso não encontre o curso com o critério escolhido ele não imprimi nada melhor que null
+//		optionalCurso.ifPresent(c -> System.out.println(c.getNome()));
+//		
 		
 		// Mesmo efeito do bloco acima que está separado em busca e exibição dos dados
 		cursos.stream()
 				.filter(c -> c.getAlunos() >= 100)
-				.findAny()
+				.findFirst()
 				.ifPresent(c -> System.out.println(c.getNome()));
 		
 		// Calculando a média de alunos nos cursos com mais de 100 alunos
