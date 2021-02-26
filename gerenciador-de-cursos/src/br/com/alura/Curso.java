@@ -1,9 +1,12 @@
 package br.com.alura;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class Curso {
@@ -12,6 +15,11 @@ public class Curso {
 	private String instrutor;
 	private List<Aula> aulas = new LinkedList<Aula>();
 	private Set<Aluno> alunos = new HashSet<>();
+	
+//	Agora vamos criar um atributo que mapeia um objeto aluno com sua respectiva matricula
+//	com esse atributo vamos ter uma busca mais otimizada comparando chave valor
+	private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>(); 
+	
 //	private Set<Aluno> alunos = new LinkedHashSet<>();
 //	private Set<Aluno> alunos = new TreeSet<>();
 	
@@ -56,6 +64,7 @@ public class Curso {
 
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
 	}
 	
 	public Set<Aluno> getAlunos() {
@@ -75,5 +84,18 @@ public class Curso {
 	@Override
 	public int hashCode(){
 	    return this.nome.hashCode();
+	}
+
+	public Aluno buscaMatriculado(int numero) {
+		if(!matriculaParaAluno.containsValue(numero))
+			throw new NoSuchElementException("Matrícula não encontrada. " + numero);
+		return matriculaParaAluno.get(numero);
+		
+//		for (Aluno aluno : alunos) {
+//			if(aluno.getNumeroMatricula() == numero) 
+//				return aluno;
+//		}
+////		return null; // Isso não é uma boa prática é melhor lançar uma Exception que se encaixa no contexto.
+//		throw new NoSuchElementException("Matrícula não encontrada." + numero);
 	}
 }
