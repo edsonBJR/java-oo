@@ -36,6 +36,7 @@ public class TesteDoAvaliador {
 //		podemos criar uma váriavel que irá guardar os valores que esperamos, por exemplo maior e menor esperado
 		double maiorEsperado = 400.0;
 		double menorEsperado = 250.0;
+		double mediaLances = 316.6666666666667;
 		
 //		Agora vamos imprimir na tela a comparação entre maior e menor esperado
 //		Agora estamos ensinando ao computador a compara o resultado
@@ -43,6 +44,8 @@ public class TesteDoAvaliador {
 		Assert.assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.00001);
 //		System.out.println(menorEsperado == leiloeiro.getMenorLance());
 		Assert.assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.00001);
+//		System.out.println(leiloeiro.mediaLances(leilao));
+		Assert.assertEquals(mediaLances, leiloeiro.mediaLances(leilao), 0.00001);
 	}
 
 }

@@ -22,4 +22,15 @@ public class Avaliador {
 	public double getMenorLance() {
 		return menorDeTodos;
 	}
+	
+	public double mediaLances(Leilao leilao) {
+		double totalDeLances = leilao.getLances().size();
+		double valorTotalDosLances = 0;
+		
+		for(Lance lance : leilao.getLances()) {
+			valorTotalDosLances += lance.getValor();
+		}
+		
+		return valorTotalDosLances / totalDeLances;
+	}
 }
