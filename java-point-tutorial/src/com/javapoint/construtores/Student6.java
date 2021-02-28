@@ -1,4 +1,4 @@
-package br.com.edson.construtores;
+package com.javapoint.construtores;
 
 public class Student6 {
 	
