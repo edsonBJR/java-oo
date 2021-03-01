@@ -3,6 +3,10 @@ package com.javapoint.tests;
 public class SimpleVariable {
 
 	public static void main(String[] args) {
+		
+//		Primitive data types: The primitive data types include boolean, char, byte, short, int, long, float and double.
+//		Non-primitive data types: The non-primitive data types include Classes, Interfaces, and Arrays.
+		
 		int a = 10; // local variable
 		int b = 10; // local variable
 		int c = a + b; // local variable
@@ -32,7 +36,7 @@ public class SimpleVariable {
 		byte l = (byte) (j + k);
 		System.out.println(l);
 		
-		
+
 	}
 
 }
